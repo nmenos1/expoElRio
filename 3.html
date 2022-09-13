@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <!-- Mirrored from www.nmenos1.xyz/public/expo/content/3 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 02:32:35 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=UTF-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="content3.css" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+    <script
+      id="primero"
+      src="../../assets/nmenos1/bower_components/jquery/dist/jquery.min.js"
+    ></script>
+    <script id="segundo">
+      $(document).ready(function () {
+        if (screen.width > screen.height) {
+          $('body').height($(window).height());
+        }
+      });
+    </script>
+    <script id="tercero" type="text/javascript">
+      var tag = document.createElement('script');
+      tag.id = 'iframe-demo';
+      tag.src = 'https://www.youtube.com/iframe_api';
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        console.log('Entro a onYouTubeIframeAPIReady');
+        player = new YT.Player('iframe-video', {
+          playerVars: { rel: 0, showinfo: 0, ecver: 2 },
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+            onError: onPlayerError,
+          },
+        });
+      }
+      function onPlayerReady(event) {
+        document.getElementById('iframe-video').style.borderColor = '#FF6D00';
+        console.log('Entro a onPlayerReady');
+        //event.target.playVideo();
+        this.player.setPlaybackQuality('hd1080');
+        this.player.playVideo();
+      }
+      function onPlayerStateChange(event) {
+        console.log('Entro a onPlayerStateChange');
+      }
+      function onPlayerError(event) {
+        console.log('Entro a onPlayerError');
+      }
+    </script>
+  </head>
+  <body>
+    <!--
+  	<iframe id="frmvid" src="https://www.youtube.com/embed/t5QQfm6LHLU?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+  	-->
+    <iframe
+      id="iframe-video"
+      src="https://www.youtube.com/embed/vpcpnfSaZio?enablejsapi=1&amp;showinfo=0&amp;autoplay=1&amp;origin=https://www.nmenos1.xyz&amp;vq=hd1080"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </body>
+
+  <!-- Mirrored from www.nmenos1.xyz/public/expo/content/3 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 02:32:38 GMT -->
+</html>
